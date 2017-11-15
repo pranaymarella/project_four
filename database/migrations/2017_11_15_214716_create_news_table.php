@@ -17,7 +17,8 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('title')->comment('Expects title of news article');
-            $table->string('link')->comment('Expects link to news article');
+            $table->text('link')->comment('Expects link to news article');
+            $table->string('cryptocurrency')->comment('Name of cryptocurrency the article is referring to');
         });
     }
 
