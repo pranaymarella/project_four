@@ -13,7 +13,7 @@ class CreateCryptocurrencyTable extends Migration
      */
     public function up()
     {
-        Schema::create('cryptocurrency', function (Blueprint $table) {
+        Schema::create('cryptos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('currency_name')->comment('Expects name of Cryptocurrency');
