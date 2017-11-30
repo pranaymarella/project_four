@@ -61,7 +61,7 @@ class CryptoController extends Controller
         $article->cryptocurrency = $request->input('crypto');
         $article->save();
 
-        return redirect('/')->with('alert', $request->input('name').'was added!');
+        return redirect('/')->with('alert', $request->input('name').' was added!');
     }
 
     public function deleteC($id) {
