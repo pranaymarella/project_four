@@ -40,3 +40,10 @@ Route::get('/debug', function () {
 
 
 Route::get('/', 'CryptoController@index');
+
+Route::get('/addCrypto', 'CryptoController@addC');
+Route::post('/addCrypto/add', 'CryptoController@addCrypto');
+Route::post('/deleteC/{id}', 'CryptoController@deleteC');
+
+Route::get('/addArticle', 'CryptoController@addA');
+Route::post('/addArticle/add', 'CryptoController@addArticle');

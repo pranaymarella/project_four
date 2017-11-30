@@ -18,14 +18,20 @@
               <td>{{ $crypto['currency_amount']}}</td>
               <td>$ {{ $crypto['currency_price'] }}</td>
               <td>{{ $crypto['created_at'] }}</td>
-              <td><button type="button" class="btn btn-danger">Delete</button></td>
+              <td>
+                  <form method="POST" action="/deleteC/{{ $crypto['id'] }}">
+                      <input type="submit" class="btn btn-primary btn-small btn-danger">Delete</button>
+                  </form>
+              </td>
           </tr>
           @endforeach
       </tbody>
     </table>
 
     <div class="row text-center">
-        <button type="button" class="btn btn-success">Add More</button>
+        <form method="GET" action="/addCrypto">
+            <button type="submit" class="btn btn-success">Add More</button>
+        </form>
     </div>
 
     <div class="row">
@@ -42,7 +48,9 @@
     </div>
 
     <div class="row text-center">
-        <button type="button" class="btn btn-success">Add Article</button>
+        <form method="GET" action="/addArticle">
+            <button type="submit" class="btn btn-success">Add Article</button>
+        </form>
     </div>
     <br>
 
