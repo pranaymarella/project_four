@@ -17,6 +17,7 @@ class CreateCryptocurrencyTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('currency_name')->comment('Expects name of Cryptocurrency');
+            $table->decimal('currency_amount')->comment('Expects the amount of Cryptocurrency purchased');
             $table->decimal('currency_price', 10, 2)->comment('Expects price of Cryptocurrency');
         });
     }

@@ -13,9 +13,9 @@ class CryptoTableSeeder extends Seeder
     public function run()
     {
         $cryptosss = [
-            ['Ethereum', 278.93],
-            ['Bitcoin', 6713.26],
-            ['Litecoin', 54.25]
+            ['Ethereum', 3, 278.93],
+            ['Bitcoin', 0.56, 6713.26],
+            ['Litecoin', 2.34, 54.25]
         ];
 
         $count = count($cryptosss);
@@ -25,7 +25,8 @@ class CryptoTableSeeder extends Seeder
                 'created_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
                 'updated_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
                 'currency_name' => $crypto[0],
-                'currency_price' => $crypto[1]
+                'currency_amount' => $crypto[1],
+                'currency_price' => $crypto[2]
             ]);
             $count--;
         }

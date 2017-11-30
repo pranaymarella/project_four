@@ -39,6 +39,4 @@ Route::get('/debug', function () {
 });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CryptoController@index');
