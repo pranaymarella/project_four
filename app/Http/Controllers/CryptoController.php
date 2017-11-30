@@ -65,8 +65,7 @@ class CryptoController extends Controller
     }
 
     public function deleteC($id) {
-        $crypto = Crypto::find($id)->delete();
-
-        return redirect('/');
+        Crypto::destory($id);
+        return view('crypto.index');
     }
 }

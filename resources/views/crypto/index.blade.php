@@ -20,7 +20,7 @@
               <td>{{ $crypto['created_at'] }}</td>
               <td>
                   <form method="POST" action="/deleteC/{{ $crypto['id'] }}">
-                      <input type="submit" class="btn btn-primary btn-small btn-danger">Delete</button>
+                      <input type="submit" value="Delete" class="btn btn-primary btn-small btn-danger"></button>
                   </form>
               </td>
           </tr>
