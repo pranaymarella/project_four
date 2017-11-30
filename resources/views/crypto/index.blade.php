@@ -8,7 +8,7 @@
           <th>Amount Owned</th>
           <th>Price Purchased</th>
           <th>Date Purchased</th>
-          <th></td>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -20,7 +20,7 @@
               <td>{{ $crypto['created_at'] }}</td>
               <td>
                   <form method="POST" action="/deleteC/{{ $crypto['id'] }}">
-                      <input type="submit" value="Delete" class="btn btn-primary btn-small btn-danger"></button>
+                      <input type="submit" value="Delete" class="btn btn-primary btn-small btn-danger">
                   </form>
               </td>
           </tr>
@@ -40,7 +40,7 @@
         @foreach($news as $article)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h1 class="panel-title">"{{ $article['title'] }}" - {{ $article['cryptocurrency']}} News</h1>
+                <h2 class="panel-title">"{{ $article['title'] }}" - {{ $article['cryptocurrency']}} News</h2>
             </div>
             <div class="panel-body"><a href="{{ $article['link']}}">{{ $article['link']}}</a></div>
         </div>
