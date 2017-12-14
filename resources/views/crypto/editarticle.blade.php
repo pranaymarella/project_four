@@ -18,11 +18,11 @@
             type="checkbox"
             value="{{ $id }}"
             name="relations[]"
-            {{ (in_array($currency_name, $typesForThisArticle)) ? 'CHECKED' : '' }}
+            {{ (in_array($currency_name, $typesForThisArticle)) ? "CHECKED" : "" }}
         > {{ $currency_name }} <br>
         @endforeach
         <br>
-        <input type='submit' value='Update Article' class='btn btn-primary btn-small'>
+        <input type="submit" value="Add Article" class="btn btn-primary btn-small">
         <br>
         <br>
     </form>

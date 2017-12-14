@@ -17,7 +17,7 @@
         <input type="checkbox" value="{{ $id }}" name="relations[]"> {{ $currency_name }} <br>
         @endforeach
         <br>
-        <input type='submit' value='Add Article' class='btn btn-primary btn-small'>
+        <input type="submit" value="Add Article" class="btn btn-primary btn-small">
         <br>
         <br>
     </form>
