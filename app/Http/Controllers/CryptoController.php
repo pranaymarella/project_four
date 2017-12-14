@@ -106,6 +106,42 @@ class CryptoController extends Controller
         return redirect('/')->with('alert', $request->input('name').' was added!');
     }
 
+    // FUNCTION USED TO GO TO THE PAGE FOR EDITING ARTICLES
+    public function editArticle($id) {
+        $article = Article::find($id);
+        $typesForCheckboxes = Types::getForCheckboxes();
+
+        $typesForThisArticle = [];
+        foreach ($article->types as $type) {
+            $typesForThisArticle[] = $type->currency_name;
+        }
+
+        return view('crypto.editarticle')->with([
+            'article' => $article,
+            'typesForCheckboxes' => $typesForCheckboxes,
+            'typesForThisArticle' => $typesForThisArticle
+        ]);
+    }
+
+    // FUNCTION USED TO UPDATE THE ARTICLE
+    public function editA(Request $request, $id) {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'article_link' => 'required|url'
+        ]);
+
+        $article = Article::find($id);
+
+        $article->types()->sync($request->input('relations'));
+
+        $article->title = $request->input('name');
+        $article->link = $request->input('article_link');
+        $article->save();
+
+        return redirect('/')->with('alert', $request->input('name').' was updated');
+    }
+
     // FUNCTION FOR DELETING CRYPTO
     public function deleteC($id) {
         $crypto = Crypto::find($id);
@@ -118,6 +154,7 @@ class CryptoController extends Controller
         return redirect('/')->with('alert', $crypto->currency_name.'was removed.');
     }
 
+    // FUNCTION FOR DELETING THE ARTICLE
     public function deleteA($id) {
         $article = Article::find($id);
 

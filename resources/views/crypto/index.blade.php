@@ -56,6 +56,10 @@
                 {{ $currencies['currency_name'] }}
                 @endforeach
                 <div class="text-right">
+                    <form method="GET" action="/editArticle/{{ $article['id'] }}">
+                        <input type="submit" value="Edit" class="btn btn-primary btn-small btn-info">
+                    </form>
+                    <br>
                     <form method="POST" action="/deleteA/{{ $article['id'] }}">
                         {{ method_field('delete') }}
                         {{ csrf_field() }}

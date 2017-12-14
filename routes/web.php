@@ -49,7 +49,11 @@ Route::get('/addCrypto', 'CryptoController@addCrypto');
 Route::post('/addCrypto/add', 'CryptoController@addC');
 Route::delete('/deleteC/{id}', 'CryptoController@deleteC');
 
-// Routes to Add and Delete Articles about CryptoCurrency
+// Routes to Add, Edit, and Delete Articles about CryptoCurrency
 Route::get('/addArticle', 'CryptoController@addA');
 Route::post('/addArticle/add', 'CryptoController@addArticle');
+
 Route::delete('/deleteA/{id}', 'CryptoController@deleteA');
+
+Route::get('/editArticle/{id}', 'CryptoController@editArticle');
+Route::post('/editArticle/{id}/edit', 'CryptoController@editA');
