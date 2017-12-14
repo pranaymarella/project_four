@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\News;
+use App\Article;
 
-class NewsTableSeeder extends Seeder
+class ArticleTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,12 +21,12 @@ class NewsTableSeeder extends Seeder
         $count = count($news);
 
         foreach ($news as $key => $news) {
-            News::insert([
+
+            Article::insert([
                 'created_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
                 'updated_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
                 'title' => $news[0],
                 'link' => $news[1],
-                'cryptocurrency' => $news[2]
             ]);
             $count--;
         }

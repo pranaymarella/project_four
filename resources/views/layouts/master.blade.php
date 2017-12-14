@@ -27,7 +27,7 @@
         </header>
 
         @if(session('alert'))
-            <div class='row alert'>
+            <div class='row alert text-center'>
                 {{ session('alert') }}
             </div>
         @endif

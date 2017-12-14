@@ -38,12 +38,18 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
-
+// Index Page
 Route::get('/', 'CryptoController@index');
 
-Route::get('/addCrypto', 'CryptoController@addC');
-Route::post('/addCrypto/add', 'CryptoController@addCrypto');
-Route::post('/deleteC/{id}', 'CryptoController@deleteC');
+Route::get('/addNewCrypto', 'CryptoController@addNewCrypto');
+Route::post('/addNewCrypto/add', 'CryptoController@addNewC');
 
+// Routes to Add and Delete CryptoCurrency Purchases
+Route::get('/addCrypto', 'CryptoController@addCrypto');
+Route::post('/addCrypto/add', 'CryptoController@addC');
+Route::delete('/deleteC/{id}', 'CryptoController@deleteC');
+
+// Routes to Add and Delete Articles about CryptoCurrency
 Route::get('/addArticle', 'CryptoController@addA');
 Route::post('/addArticle/add', 'CryptoController@addArticle');
+Route::delete('/deleteA/{id}', 'CryptoController@deleteA');

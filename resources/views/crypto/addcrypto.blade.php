@@ -7,11 +7,16 @@
         {{ csrf_field() }}
 
         <label for="name">Cryptocurrency Name</label><br>
-        <input type="text" name="name" placeholder="Name of Cryptocurrency">
-        <br>
+        <select name="name">
+            @foreach ($cryptos as $crypto)
+            <option value="{{ $crypto['currency_name'] }}">{{ $crypto['currency_name'] }}</option>
+            @endforeach
+        </select>
+        <!-- <input type="text" name="name" placeholder="Name of Cryptocurrency"> -->
+        <br><br>
         <label for="amount_owned">Amount Owned</label><br>
         <input type="text" name="owned" placeholder="Amount purchased">
-        <br>
+        <br><br>
         <label for="price">Price Purchased</label><br>
         <input type="text" name="price" placeholder="price purchased at">
         <br>
@@ -20,5 +25,7 @@
         <br>
         <br>
     </form>
+    <a href="/">Go Back</a>
+    <br><br>
 </div>
 @endsection

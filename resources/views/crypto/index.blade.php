@@ -20,6 +20,8 @@
               <td>{{ $crypto['created_at'] }}</td>
               <td>
                   <form method="POST" action="/deleteC/{{ $crypto['id'] }}">
+                      {{ method_field('delete') }}
+                      {{ csrf_field() }}
                       <input type="submit" value="Delete" class="btn btn-primary btn-small btn-danger">
                   </form>
               </td>
@@ -30,7 +32,11 @@
 
     <div class="row text-center">
         <form method="GET" action="/addCrypto">
-            <button type="submit" class="btn btn-success">Add More</button>
+            <button type="submit" class="btn btn-success">Add New Purchase</button>
+        </form>
+        <br>
+        <form method="GET" action="/addNewCrypto">
+            <button type="submit" class="btn btn-success">List A New Cryptocurrency</button>
         </form>
     </div>
 
@@ -40,9 +46,23 @@
         @foreach($news as $article)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h2 class="panel-title">"{{ $article['title'] }}" - {{ $article['cryptocurrency']}} News</h2>
+                <div class="text-left">
+                    <h2 class="panel-title">"{{ $article['title'] }}" News</h2>
+                </div>
             </div>
             <div class="panel-body"><a href="{{ $article['link']}}">{{ $article['link']}}</a></div>
+            <div class="panel-footer">Related to:
+                @foreach($article['types'] as $currencies)
+                {{ $currencies['currency_name'] }}
+                @endforeach
+                <div class="text-right">
+                    <form method="POST" action="/deleteA/{{ $article['id'] }}">
+                        {{ method_field('delete') }}
+                        {{ csrf_field() }}
+                        <input type="submit" value="Delete" class="btn btn-primary btn-small btn-danger">
+                    </form>
+                </div>
+            </div>
         </div>
         @endforeach
     </div>
